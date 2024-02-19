@@ -1,25 +1,37 @@
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var app = builder.Build();
+builder.Services.AddGraphQlWithSchema();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+var app = builder.Build();
 
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
-app.MapControllers();
+app.Map("/api", builder =>
+{
+    builder
+        .UseSwagger()
+        .UseSwaggerUI(options =>
+        {
+            options.SwaggerEndpoint("/api/swagger/v1/swagger.json", "Open Planning Poker GraphQL v1");
+        });
+
+    builder
+        .UseRouting()
+        .UseEndpoints(endpoints =>
+        {
+            endpoints.MapGraphQLSchema();
+            endpoints.MapBananaCakePop();
+            endpoints.MapGraphQLHttp();
+            endpoints.MapControllers();
+        });
+});
+
 
 app.Run();
