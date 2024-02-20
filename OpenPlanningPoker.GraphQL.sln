@@ -1,0 +1,68 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34525.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{231C10FC-06C5-4D99-93F5-58D3B8C59C72}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{B8F1AB0F-1871-440E-8701-51E60B0D631B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenPlanningPoker.GraphQL.Api", "src\OpenPlanningPoker.GraphQL.Api\OpenPlanningPoker.GraphQL.Api.csproj", "{4B02E128-C1F9-428A-BCB4-8DE90C19F8DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenPlanningPoker.GraphQL.Domain", "src\OpenPlanningPoker.GraphQL.Domain\OpenPlanningPoker.GraphQL.Domain.csproj", "{53D57663-77C3-49E2-9BA4-D24C5734B937}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenPlanningPoker.GraphQL.Service", "src\OpenPlanningPoker.GraphQL.Service\OpenPlanningPoker.GraphQL.Service.csproj", "{9FE1EE62-5381-4587-9F56-CF54E72340F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenPlanningPoker.GraphQL.IntegrationTests", "test\OpenPlanningPoker.GraphQL.IntegrationTests\OpenPlanningPoker.GraphQL.IntegrationTests.csproj", "{92D575DB-9100-4896-839F-0A62E0F67CF8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenPlanningPoker.GraphQL.UnitTests", "test\OpenPlanningPoker.GraphQL.UnitTests\OpenPlanningPoker.GraphQL.UnitTests.csproj", "{EE80144E-C259-445C-8F15-56A6A5BDC9CA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A40E4D94-1424-4A17-9597-8EE5D2D6474A}"
+	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
+		.gitignore = .gitignore
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4B02E128-C1F9-428A-BCB4-8DE90C19F8DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B02E128-C1F9-428A-BCB4-8DE90C19F8DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B02E128-C1F9-428A-BCB4-8DE90C19F8DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B02E128-C1F9-428A-BCB4-8DE90C19F8DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53D57663-77C3-49E2-9BA4-D24C5734B937}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53D57663-77C3-49E2-9BA4-D24C5734B937}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53D57663-77C3-49E2-9BA4-D24C5734B937}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53D57663-77C3-49E2-9BA4-D24C5734B937}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FE1EE62-5381-4587-9F56-CF54E72340F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FE1EE62-5381-4587-9F56-CF54E72340F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FE1EE62-5381-4587-9F56-CF54E72340F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FE1EE62-5381-4587-9F56-CF54E72340F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92D575DB-9100-4896-839F-0A62E0F67CF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92D575DB-9100-4896-839F-0A62E0F67CF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92D575DB-9100-4896-839F-0A62E0F67CF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92D575DB-9100-4896-839F-0A62E0F67CF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE80144E-C259-445C-8F15-56A6A5BDC9CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE80144E-C259-445C-8F15-56A6A5BDC9CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE80144E-C259-445C-8F15-56A6A5BDC9CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE80144E-C259-445C-8F15-56A6A5BDC9CA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4B02E128-C1F9-428A-BCB4-8DE90C19F8DA} = {231C10FC-06C5-4D99-93F5-58D3B8C59C72}
+		{53D57663-77C3-49E2-9BA4-D24C5734B937} = {231C10FC-06C5-4D99-93F5-58D3B8C59C72}
+		{9FE1EE62-5381-4587-9F56-CF54E72340F6} = {231C10FC-06C5-4D99-93F5-58D3B8C59C72}
+		{92D575DB-9100-4896-839F-0A62E0F67CF8} = {B8F1AB0F-1871-440E-8701-51E60B0D631B}
+		{EE80144E-C259-445C-8F15-56A6A5BDC9CA} = {B8F1AB0F-1871-440E-8701-51E60B0D631B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D54BE892-9943-4173-8483-E580153C796A}
+	EndGlobalSection
+EndGlobal
