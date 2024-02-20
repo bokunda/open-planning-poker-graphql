@@ -3,11 +3,41 @@
   mutation: Mutation
 }
 
+type Game {
+  players: Players!
+  id: UUID!
+  name: String!
+  description: String!
+}
+
+type GameUserPair {
+  gameId: UUID!
+  userId: UUID!
+}
+
 type Mutation {
   ping: String!
+  createGame(name: String! description: String!): Game!
+  joinGame(gameId: UUID!): GameUserPair!
+  leaveGame(gameId: UUID!): GameUserPair!
+}
+
+type Player {
+  id: UUID!
+  name: String!
+}
+
+type Players {
+  gameId: UUID!
+  playerList: [Player!]!
+  totalCount: Int!
 }
 
 type Query {
   ping: String!
   info: String!
+  game(gameId: UUID!): Game!
+  players(gameId: UUID!): Players!
 }
+
+scalar UUID @specifiedBy(url: "https:\/\/tools.ietf.org\/html\/rfc4122")
