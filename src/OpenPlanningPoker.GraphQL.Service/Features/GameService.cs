@@ -11,34 +11,34 @@ public interface IGameService
 
 public class GameService : IGameService
 {
-    private readonly GameEngineClient _gameEngineClient;
+    private readonly IGameEngineClient _gameEngineClient;
 
-    public GameService(GameEngineClient gameEngineClient)
+    public GameService(IGameEngineClient gameEngineClient)
     {
         _gameEngineClient = gameEngineClient;
     }
     public async Task<GetGameResponse> Get(Guid gameId, CancellationToken cancellationToken = default)
     {
-        return await _gameEngineClient.Games.GetGameDetails(gameId, cancellationToken);
+        return await _gameEngineClient.GameResource.GetGameDetails(gameId, cancellationToken);
     }
 
     public async Task<CreateGameResponse> Create(CreateGameCommand command, CancellationToken cancellationToken = default)
     {
-        return await _gameEngineClient.Games.CreateGame(command, cancellationToken);
+        return await _gameEngineClient.GameResource.CreateGame(command, cancellationToken);
     }
 
     public async Task<ListPlayersResponse> GetParticipants(Guid gameId, CancellationToken cancellationToken = default)
     {
-        return await _gameEngineClient.Games.GetParticipants(gameId, cancellationToken);
+        return await _gameEngineClient.GameResource.GetParticipants(gameId, cancellationToken);
     }
 
     public async Task<JoinGameResponse> Join(Guid gameId, CancellationToken cancellationToken = default)
     {
-        return await _gameEngineClient.Games.JoinGame(gameId, cancellationToken);
+        return await _gameEngineClient.GameResource.JoinGame(gameId, cancellationToken);
     }
 
     public async Task<LeaveGameResponse> Leave(Guid gameId, CancellationToken cancellationToken = default)
     {
-        return await _gameEngineClient.Games.LeaveGame(gameId, cancellationToken);
+        return await _gameEngineClient.GameResource.LeaveGame(gameId, cancellationToken);
     }
 }
