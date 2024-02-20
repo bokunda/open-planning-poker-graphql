@@ -12,6 +12,8 @@ public class Game
         CancellationToken cancellationToken)
     {
         var result = await gameService.GetParticipants(Id, cancellationToken);
-        return mapper.Map<Players>(result);
+        var mappedResult = mapper.Map<Players>(result);
+        mappedResult.PlayerList = mapper.Map<ICollection<Player>>(result.Players);
+        return mappedResult;
     }
 }

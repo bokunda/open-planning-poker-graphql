@@ -2,7 +2,16 @@
   "data": {
     "players": {
       "gameId": "f3ac3173-837d-4d2d-84f3-037ba450f503",
-      "playerList": [],
+      "playerList": [
+        {
+          "id": "eca9f3f0-1777-4507-9880-845ccfe241d5",
+          "name": "Name1"
+        },
+        {
+          "id": "513e1a3a-5719-4179-bdfb-b80f194e8282",
+          "name": "Name2"
+        }
+      ],
       "totalCount": 2
     }
   }

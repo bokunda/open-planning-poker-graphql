@@ -21,6 +21,8 @@ public class GameQueries
     public async Task<Players> GetPlayers(Guid gameId, CancellationToken cancellationToken = default)
     {
         var result = await _gameService.GetParticipants(gameId, cancellationToken);
-        return _mapper.Map<Players>(result);
+        var mappedResult = _mapper.Map<Players>(result);
+        mappedResult.PlayerList = _mapper.Map<ICollection<Player>>(result.Players);
+        return mappedResult;
     }
 }
