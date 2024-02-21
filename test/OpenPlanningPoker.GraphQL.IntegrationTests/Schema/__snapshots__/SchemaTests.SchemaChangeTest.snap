@@ -5,9 +5,18 @@
 
 type Game {
   players: Players!
+  settings: GameSettings!
   id: UUID!
   name: String!
   description: String!
+}
+
+type GameSettings {
+  game: Game!
+  id: UUID!
+  gameId: UUID!
+  votingTime: Int!
+  isBreakAllowed: Boolean!
 }
 
 type GameUserPair {
@@ -20,6 +29,8 @@ type Mutation {
   createGame(name: String! description: String!): Game!
   joinGame(gameId: UUID!): GameUserPair!
   leaveGame(gameId: UUID!): GameUserPair!
+  createGameSettings(gameId: UUID! votingTime: Int! isBreakAllowed: Boolean!): GameSettings!
+  updateGameSettings(id: UUID! gameId: UUID! votingTime: Int! isBreakAllowed: Boolean!): GameSettings!
 }
 
 type Player {
@@ -38,6 +49,7 @@ type Query {
   info: String!
   game(gameId: UUID!): Game!
   players(gameId: UUID!): Players!
+  gameSettings(gameId: UUID!): GameSettings!
 }
 
 scalar UUID @specifiedBy(url: "https:\/\/tools.ietf.org\/html\/rfc4122")
