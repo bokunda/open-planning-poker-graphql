@@ -1,12 +1,9 @@
-﻿using OpenPlanningPoker.GameEngine.Api.Models.Features.GamePlayer;
-using OpenPlanningPoker.GameEngine.Api.Models.Features.Games;
-using OpenPlanningPoker.GraphQL.Api.AutoMapper;
+﻿namespace OpenPlanningPoker.GraphQL.IntegrationTests.Games;
 
-namespace OpenPlanningPoker.GraphQL.IntegrationTests.Games;
-
-public class GameServicesTests
+public class GameTests
 {
     private readonly IGameService _gameService = Substitute.For<IGameService>();
+    private readonly IGameSettingsService _gameSettingsService = Substitute.For<IGameSettingsService>();
 
     [Fact]
     public async Task GetGame_WithoutResolvers_Success()
@@ -37,11 +34,16 @@ public class GameServicesTests
     public async Task GetGame_WithPlayersResolver_Success()
     {
         // Arrange
-        const string query = "query { game(gameId: \"df9ff649-d9df-41af-9792-5b1cd07a14e9\") { id name description players { gameId playerList { id name } totalCount } } }";
+        const string query = "query { game(gameId: \"df9ff649-d9df-41af-9792-5b1cd07a14e9\") { id name description players { playerList { id name } totalCount } settings { id votingTime game { players { playerList { name } } } } } }";
 
         var gameId = Guid.Parse("f3ac3173-837d-4d2d-84f3-037ba450f503");
         const string gameName = "name";
         const string gameDescription = "description";
+
+        var gameSettingsId = Guid.Parse("df9ff649-1111-41af-9792-5b1cd07a14e9");
+        const int votingTime = 60;
+        const bool isBreakAllowed = true;
+        var expectedResponseGameSettings = new GetGameSettingsResponse(gameSettingsId, gameId, votingTime, isBreakAllowed);
 
         _gameService.Get(Arg.Any<Guid>(), Arg.Any<CancellationToken>())
             .Returns(new GetGameResponse(gameId, gameName, gameDescription));
@@ -56,8 +58,12 @@ public class GameServicesTests
                 },
                 2));
 
+        _gameSettingsService.GetGameSettings(Arg.Any<Guid>(), Arg.Any<CancellationToken>())
+            .Returns(expectedResponseGameSettings);
+
         var builder = new ServiceCollection()
             .AddSingleton(_gameService)
+            .AddSingleton(_gameSettingsService)
             .AddAutoMapper(typeof(GameMappingProfile).Assembly)
             .AddGraphQlWithSchema();
 

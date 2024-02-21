@@ -16,4 +16,13 @@ public class Game
         mappedResult.PlayerList = mapper.Map<ICollection<Player>>(result.Players);
         return mappedResult;
     }
+
+    public async Task<GameSettings.GameSettings> GetSettings(
+        [Service] IGameSettingsService gameSettingsService,
+        [Service] IMapper mapper,
+        CancellationToken cancellationToken = default)
+    {
+        var result = await gameSettingsService.GetGameSettings(Id, cancellationToken);
+        return mapper.Map<GameSettings.GameSettings>(result);
+    }
 }
