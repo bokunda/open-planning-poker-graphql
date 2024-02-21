@@ -5,7 +5,6 @@
       "name": "name",
       "description": "description",
       "players": {
-        "gameId": "f3ac3173-837d-4d2d-84f3-037ba450f503",
         "playerList": [
           {
             "id": "eca9f3f0-1777-4507-9880-845ccfe241d5",
@@ -17,6 +16,22 @@
           }
         ],
         "totalCount": 2
+      },
+      "settings": {
+        "id": "df9ff649-1111-41af-9792-5b1cd07a14e9",
+        "votingTime": 60,
+        "game": {
+          "players": {
+            "playerList": [
+              {
+                "name": "Name1"
+              },
+              {
+                "name": "Name2"
+              }
+            ]
+          }
+        }
       }
     }
   }

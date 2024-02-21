@@ -18,7 +18,7 @@ public class GameSettingsMutations
         return _mapper.Map<GameSettings>(result);
     }
 
-    public async Task<GameSettings> CreateGameSettings(Guid id, Guid gameId, int votingTime, bool isBreakAllowed)
+    public async Task<GameSettings> UpdateGameSettings(Guid id, Guid gameId, int votingTime, bool isBreakAllowed)
     {
         var result = await _gameSettingsService.UpdateGameSettings(new UpdateGameSettingsCommand(id, gameId, votingTime, isBreakAllowed));
         return _mapper.Map<GameSettings>(result);

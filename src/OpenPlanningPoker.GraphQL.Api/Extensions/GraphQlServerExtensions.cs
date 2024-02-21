@@ -12,9 +12,11 @@ public static class GraphQlServerExtensions
         builder
             .AddQueryType<Query>()
             .AddTypeExtension<InfoQueries>()
-            .AddTypeExtension<GameQueries>();
+            .AddTypeExtension<GameQueries>()
+            .AddTypeExtension<GameSettingsQueries>();
 
     private static IRequestExecutorBuilder AddMutations(this IRequestExecutorBuilder builder) =>
         builder.AddMutationType<Mutation>()
-            .AddTypeExtension<GameMutations>();
+            .AddTypeExtension<GameMutations>()
+            .AddTypeExtension<GameSettingsMutations>();
 }
