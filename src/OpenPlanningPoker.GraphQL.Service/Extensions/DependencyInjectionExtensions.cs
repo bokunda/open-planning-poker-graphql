@@ -6,5 +6,6 @@ public static class DependencyInjectionExtensions
         services
             .AddGameEngineClient(appSettings.GameEngineApi)
             .AddTransient<IGameService, GameService>()
-            .AddTransient<IGameSettingsService, GameSettingsService>();
+            .AddTransient<IGameSettingsService, GameSettingsService>()
+            .AddTransient<ITicketService, TicketService>();
 }

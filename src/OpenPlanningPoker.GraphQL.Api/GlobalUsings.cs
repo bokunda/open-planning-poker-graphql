@@ -14,3 +14,4 @@ global using OpenPlanningPoker.GraphQL.Api.Features.Info;
 global using OpenPlanningPoker.GraphQL.Service;
 global using OpenPlanningPoker.GraphQL.Service.Extensions;
 global using OpenPlanningPoker.GraphQL.Service.Features;
+global using OpenPlanningPoker.GraphQL.Service.Features.GameEngine;

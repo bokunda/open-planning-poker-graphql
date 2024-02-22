@@ -5,7 +5,7 @@
       "name": "name",
       "description": "description",
       "players": {
-        "playerList": [
+        "items": [
           {
             "id": "eca9f3f0-1777-4507-9880-845ccfe241d5",
             "name": "Name1"
@@ -22,7 +22,7 @@
         "votingTime": 60,
         "game": {
           "players": {
-            "playerList": [
+            "items": [
               {
                 "name": "Name1"
               },

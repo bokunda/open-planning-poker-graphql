@@ -1,4 +1,7 @@
-﻿namespace OpenPlanningPoker.GraphQL.IntegrationTests.GameSettings;
+﻿using OpenPlanningPoker.GameEngine.Api.Models;
+using OpenPlanningPoker.GraphQL.Service.Features.GameEngine;
+
+namespace OpenPlanningPoker.GraphQL.IntegrationTests.GameSettings;
 
 public class GameSettingsTests
 {
@@ -11,7 +14,7 @@ public class GameSettingsTests
     public async Task GetGameSettings_WithResolvers_Success()
     {
         // Arrange
-        const string query = "query { gameSettings(gameId: \"df9ff649-d9df-41af-9792-5b1cd07a14e9\") { id gameId votingTime isBreakAllowed game { name description players { playerList { id name } totalCount } } } }";
+        const string query = "query { gameSettings(gameId: \"df9ff649-d9df-41af-9792-5b1cd07a14e9\") { id gameId votingTime isBreakAllowed game { name description players { items { id name } totalCount } } } }";
 
         var gameSettingsId = Guid.Parse("df9ff649-1111-41af-9792-5b1cd07a14e9");
         var gameId = Guid.Parse("df9ff649-2222-41af-9792-5b1cd07a14e9");
@@ -29,12 +32,11 @@ public class GameSettingsTests
         _gameSettingsService.GetGameSettings(Arg.Any<Guid>(), Arg.Any<CancellationToken>())
             .Returns(expectedResponseGameSettings);
 
-        var firstPlayer = new ListPlayersPlayerItem(Guid.Parse("d9330d3f-a85b-415a-8136-a454129165a7"), "Name1");
-        var secondPlayer = new ListPlayersPlayerItem(Guid.Parse("16569daf-a211-43f1-bfe1-a36f6c36e267"), "Name2");
+        var firstPlayer = new ListPlayersItem(Guid.Parse("d9330d3f-a85b-415a-8136-a454129165a7"), "Name1");
+        var secondPlayer = new ListPlayersItem(Guid.Parse("16569daf-a211-43f1-bfe1-a36f6c36e267"), "Name2");
 
-        var expectedResponsePlayers = new ListPlayersResponse(
-            gameId,
-            new List<ListPlayersPlayerItem>
+        var expectedResponsePlayers = new ApiCollection<ListPlayersItem>(
+            new List<ListPlayersItem>
             {
                 firstPlayer,
                 secondPlayer

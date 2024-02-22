@@ -8,7 +8,6 @@ public class GameMappingProfile : Profile
         CreateMap<GetGameResponse, Game>();
         CreateMap<JoinGameResponse, GameUserPair>();
         CreateMap<LeaveGameResponse, GameUserPair>();
-        CreateMap<ListPlayersResponse, Players>();
-        CreateMap<ListPlayersPlayerItem, Player>();
+        CreateMap<ListPlayersItem, Player>();
     }
 }

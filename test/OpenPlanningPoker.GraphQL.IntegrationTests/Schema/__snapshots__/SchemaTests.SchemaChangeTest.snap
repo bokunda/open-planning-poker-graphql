@@ -3,8 +3,13 @@
   mutation: Mutation
 }
 
+type ApiCollectionOfPlayer {
+  items: [Player!]!
+  totalCount: Int!
+}
+
 type Game {
-  players: Players!
+  players: ApiCollectionOfPlayer!
   settings: GameSettings!
   id: UUID!
   name: String!
@@ -38,17 +43,11 @@ type Player {
   name: String!
 }
 
-type Players {
-  gameId: UUID!
-  playerList: [Player!]!
-  totalCount: Int!
-}
-
 type Query {
   ping: String!
   info: String!
   game(gameId: UUID!): Game!
-  players(gameId: UUID!): Players!
+  players(gameId: UUID!): ApiCollectionOfPlayer!
   gameSettings(gameId: UUID!): GameSettings!
 }
 

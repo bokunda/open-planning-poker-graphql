@@ -1,4 +1,7 @@
-﻿namespace OpenPlanningPoker.GraphQL.UnitTests.Services;
+﻿using OpenPlanningPoker.GameEngine.Api.Models;
+using OpenPlanningPoker.GraphQL.Service.Features.GameEngine;
+
+namespace OpenPlanningPoker.GraphQL.UnitTests.Services;
 
 public class GameServiceTests
 {
@@ -53,12 +56,11 @@ public class GameServiceTests
     {
         // Arrange
         var gameId = Guid.Parse("df9ff649-d9df-41af-9792-5b1cd07a14e9");
-        var firstPlayer = new ListPlayersPlayerItem(Guid.Parse("d9330d3f-a85b-415a-8136-a454129165a7"), "Name1");
-        var secondPlayer = new ListPlayersPlayerItem(Guid.Parse("16569daf-a211-43f1-bfe1-a36f6c36e267"), "Name2");
+        var firstPlayer = new ListPlayersItem(Guid.Parse("d9330d3f-a85b-415a-8136-a454129165a7"), "Name1");
+        var secondPlayer = new ListPlayersItem(Guid.Parse("16569daf-a211-43f1-bfe1-a36f6c36e267"), "Name2");
 
-        var expectedResponse = new ListPlayersResponse(
-            gameId,
-            new List<ListPlayersPlayerItem>
+        var expectedResponse = new ApiCollection<ListPlayersItem>(
+            new List<ListPlayersItem>
             {
                 firstPlayer,
                 secondPlayer
