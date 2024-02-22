@@ -1,4 +1,6 @@
-﻿namespace OpenPlanningPoker.GraphQL.Api.Extensions;
+﻿using OpenPlanningPoker.GraphQL.Api.Features.Tickets;
+
+namespace OpenPlanningPoker.GraphQL.Api.Extensions;
 
 public static class GraphQlServerExtensions
 {
@@ -13,10 +15,12 @@ public static class GraphQlServerExtensions
             .AddQueryType<Query>()
             .AddTypeExtension<InfoQueries>()
             .AddTypeExtension<GameQueries>()
-            .AddTypeExtension<GameSettingsQueries>();
+            .AddTypeExtension<GameSettingsQueries>()
+            .AddTypeExtension<TicketQueries>();
 
     private static IRequestExecutorBuilder AddMutations(this IRequestExecutorBuilder builder) =>
         builder.AddMutationType<Mutation>()
             .AddTypeExtension<GameMutations>()
-            .AddTypeExtension<GameSettingsMutations>();
+            .AddTypeExtension<GameSettingsMutations>()
+            .AddTypeExtension<TicketMutations>();
 }

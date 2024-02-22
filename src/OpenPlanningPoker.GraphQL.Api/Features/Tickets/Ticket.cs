@@ -1,4 +1,4 @@
-﻿namespace OpenPlanningPoker.GraphQL.Api.Features;
+﻿namespace OpenPlanningPoker.GraphQL.Api.Features.Tickets;
 
 public class Ticket
 {

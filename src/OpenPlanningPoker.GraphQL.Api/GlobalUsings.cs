@@ -6,6 +6,7 @@ global using HotChocolate.Execution.Configuration;
 global using OpenPlanningPoker.GameEngine.Api.Models.Features.GamePlayer;
 global using OpenPlanningPoker.GameEngine.Api.Models.Features.Games;
 global using OpenPlanningPoker.GameEngine.Api.Models.Features.GameSettings;
+global using OpenPlanningPoker.GameEngine.Api.Models.Features.Tickets;
 global using OpenPlanningPoker.GraphQL.Api.Extensions;
 global using OpenPlanningPoker.GraphQL.Api.Features;
 global using OpenPlanningPoker.GraphQL.Api.Features.Games;
