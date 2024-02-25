@@ -1,6 +1,6 @@
 ﻿using OpenPlanningPoker.GameEngine.Api.Models;
 
-namespace OpenPlanningPoker.GraphQL.Service.Features.GameEngine;
+namespace OpenPlanningPoker.GraphQL.Service.Features.Tickets;
 
 public interface ITicketService
 {

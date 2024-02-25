@@ -29,4 +29,8 @@
     <ProjectReference Include="..\..\src\OpenPlanningPoker.GraphQL.Api\OpenPlanningPoker.GraphQL.Api.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Tickets\" />
+  </ItemGroup>
+
 </Project>

@@ -1,4 +1,7 @@
-﻿namespace OpenPlanningPoker.GraphQL.Service.Extensions;
+﻿using OpenPlanningPoker.GraphQL.Service.Features.GameSettings;
+using OpenPlanningPoker.GraphQL.Service.Features.Tickets;
+
+namespace OpenPlanningPoker.GraphQL.Service.Extensions;
 
 public static class DependencyInjectionExtensions
 {

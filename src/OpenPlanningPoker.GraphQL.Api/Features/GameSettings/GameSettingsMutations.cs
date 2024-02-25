@@ -1,4 +1,6 @@
-﻿namespace OpenPlanningPoker.GraphQL.Api.Features.GameSettings;
+﻿using OpenPlanningPoker.GraphQL.Service.Features.GameSettings;
+
+namespace OpenPlanningPoker.GraphQL.Api.Features.GameSettings;
 
 [ExtendObjectType(typeof(Mutation))]
 public class GameSettingsMutations
