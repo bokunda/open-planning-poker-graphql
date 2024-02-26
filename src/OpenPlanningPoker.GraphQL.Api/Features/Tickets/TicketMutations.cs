@@ -28,7 +28,7 @@ public class TicketMutations
 
     public async Task<ApiCollection<ImportTicketItem>> ImportTickets(Guid gameId, ApiCollection<ImportTicketItem> data, CancellationToken cancellationToken = default)
     {
-        var result = await _ticketService.ImportTicket(new ImportTicketsCommand(gameId, data.Items), cancellationToken);
+        var result = await _ticketService.ImportTickets(new ImportTicketsCommand(gameId, data.Items), cancellationToken);
         return _mapper.Map<ApiCollection<ImportTicketItem>>(result);
     }
 

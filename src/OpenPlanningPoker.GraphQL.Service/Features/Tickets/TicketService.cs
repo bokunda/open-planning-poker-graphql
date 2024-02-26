@@ -26,7 +26,7 @@ public interface ITicketService
     /// Import a list of Tickets using web API - import
     /// </summary>
     /// <returns></returns>
-    Task<ApiCollection<ImportTicketItem>> ImportTicket(ImportTicketsCommand data, CancellationToken cancellationToken = default);
+    Task<ApiCollection<ImportTicketItem>> ImportTickets(ImportTicketsCommand data, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Import a list of Tickets using a CSV file - import/csv/{gameId}
@@ -65,7 +65,7 @@ public class TicketService : ITicketService
         return await _gameEngineClient.TicketResource.CreateTicket(data, cancellationToken);
     }
 
-    public async Task<ApiCollection<ImportTicketItem>> ImportTicket(ImportTicketsCommand data, CancellationToken cancellationToken = default)
+    public async Task<ApiCollection<ImportTicketItem>> ImportTickets(ImportTicketsCommand data, CancellationToken cancellationToken = default)
     {
         return await _gameEngineClient.TicketResource.ImportTicket(data, cancellationToken);
     }
