@@ -1,6 +1,4 @@
-﻿using OpenPlanningPoker.GraphQL.Service.Features.Tickets;
-
-namespace OpenPlanningPoker.GraphQL.Api.Features.Tickets;
+﻿namespace OpenPlanningPoker.GraphQL.Api.Features.Tickets;
 
 [ExtendObjectType(typeof(Mutation))]
 public class TicketMutations
@@ -18,6 +16,12 @@ public class TicketMutations
     {
         var result = await _ticketService.CreateTicket(new CreateTicketCommand(gameId, name, description), cancellationToken);
         return _mapper.Map<CreateTicketResponse>(result);
+    }
+
+    public async Task<UpdateTicketResponse> UpdateTicket(Guid ticketId, string name, string description, CancellationToken cancellationToken = default)
+    {
+        var result = await _ticketService.UpdateTicket(new UpdateTicketCommand(ticketId, name, description), cancellationToken);
+        return _mapper.Map<UpdateTicketResponse>(result);
     }
 
     public async Task<bool> DeleteTicket(Guid ticketId, CancellationToken cancellationToken = default)

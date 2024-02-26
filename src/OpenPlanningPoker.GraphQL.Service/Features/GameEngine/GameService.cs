@@ -1,6 +1,4 @@
-﻿using OpenPlanningPoker.GameEngine.Api.Models;
-
-namespace OpenPlanningPoker.GraphQL.Service.Features.GameEngine;
+﻿namespace OpenPlanningPoker.GraphQL.Service.Features.GameEngine;
 
 public interface IGameService
 {

@@ -1,4 +1,6 @@
-﻿namespace OpenPlanningPoker.GraphQL.IntegrationTests.Tickets;
+﻿using OpenPlanningPoker.GameEngine.Api.Models.Features.Tickets;
+
+namespace OpenPlanningPoker.GraphQL.IntegrationTests.Tickets;
 
 public class TicketTests
 {
@@ -92,6 +94,33 @@ public class TicketTests
 
         var apiResponse = new CreateTicketResponse(ticketId, gameId, name, description);
         _ticketService.CreateTicket(Arg.Any<CreateTicketCommand>(), Arg.Any<CancellationToken>())
+            .Returns(apiResponse);
+
+        var builder = new ServiceCollection()
+            .AddSingleton(_ticketService)
+            .AddAutoMapper(typeof(GameMappingProfile).Assembly)
+            .AddGraphQlWithSchema();
+
+        // Act
+        var result = await builder.ExecuteRequestAsync(mutation);
+
+        // Assert
+        result.ToJson().MatchSnapshot();
+    }
+
+    [Fact]
+    public async Task UpdateTicket_Success()
+    {
+        // Arrange
+        const string mutation = "mutation { updateTicket(ticketId: \"df9ff649-d9df-41af-9792-5b1cd07a14e9\", name: \"name1\", description: \"description1\") { id gameId name description } }";
+
+        var ticketId = Guid.Parse("c2bc2b96-06af-1111-9861-730db9ffbc4d");
+        var gameId = Guid.Parse("4a965cf1-f22c-2222-b46f-862a79eff7db");
+        const string name = "name1";
+        const string description = "description1";
+
+        var apiResponse = new UpdateTicketResponse(ticketId, gameId, name, description);
+        _ticketService.UpdateTicket(Arg.Any<UpdateTicketCommand>(), Arg.Any<CancellationToken>())
             .Returns(apiResponse);
 
         var builder = new ServiceCollection()
