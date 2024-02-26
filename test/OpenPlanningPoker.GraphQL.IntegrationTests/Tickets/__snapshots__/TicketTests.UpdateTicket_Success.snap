@@ -1,0 +1,10 @@
+﻿{
+  "data": {
+    "updateTicket": {
+      "id": "c2bc2b96-06af-1111-9861-730db9ffbc4d",
+      "gameId": "4a965cf1-f22c-2222-b46f-862a79eff7db",
+      "name": "name1",
+      "description": "description1"
+    }
+  }
+}

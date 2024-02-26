@@ -1,4 +1,6 @@
-﻿namespace OpenPlanningPoker.GraphQL.UnitTests.Services;
+﻿using OpenPlanningPoker.GameEngine.Api.Models.Features.Tickets;
+
+namespace OpenPlanningPoker.GraphQL.UnitTests.Services;
 
 public class TicketServiceTests
 {
@@ -79,6 +81,28 @@ public class TicketServiceTests
 
         // Act
         var result = await _ticketService.CreateTicket(command, CancellationToken.None);
+
+        // Assert
+        result.Should().BeEquivalentTo(apiResponse, opt => opt.ExcludingMissingMembers());
+    }
+
+    [Fact]
+    public async Task UpdateTicket_Success()
+    {
+        // Arrange
+        var ticketId = Guid.Parse("c2bc2b96-06af-4444-9861-730db9ffbc4d");
+        var gameId = Guid.Parse("4a965cf1-f22c-5555-b46f-862a79eff7db");
+        const string name = "name1";
+        const string description = "description1";
+
+        var command = new UpdateTicketCommand(ticketId, name, description);
+
+        var apiResponse = new UpdateTicketResponse(ticketId, gameId, name, description);
+        _gameEngineClient.TicketResource.UpdateTicket(Arg.Any<UpdateTicketCommand>(), Arg.Any<CancellationToken>())
+            .Returns(apiResponse);
+
+        // Act
+        var result = await _ticketService.UpdateTicket(command, CancellationToken.None);
 
         // Assert
         result.Should().BeEquivalentTo(apiResponse, opt => opt.ExcludingMissingMembers());

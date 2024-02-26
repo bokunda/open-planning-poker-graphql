@@ -1,6 +1,4 @@
-﻿using OpenPlanningPoker.GameEngine.Api.Models;
-
-namespace OpenPlanningPoker.GraphQL.Service.Features.Tickets;
+﻿namespace OpenPlanningPoker.GraphQL.Service.Features.Tickets;
 
 public interface ITicketService
 {
@@ -22,6 +20,12 @@ public interface ITicketService
     /// <returns></returns>
     Task<CreateTicketResponse> CreateTicket(CreateTicketCommand data, CancellationToken cancellationToken = default);
 
+    /// <summary>
+    /// Updates a Ticket
+    /// </summary>
+    /// <returns></returns>
+    Task<UpdateTicketResponse> UpdateTicket(UpdateTicketCommand data, CancellationToken cancellationToken = default);
+    
     /// <summary>
     /// Import a list of Tickets using web API - import
     /// </summary>
@@ -63,6 +67,11 @@ public class TicketService : ITicketService
     public async Task<CreateTicketResponse> CreateTicket(CreateTicketCommand data, CancellationToken cancellationToken = default)
     {
         return await _gameEngineClient.TicketResource.CreateTicket(data, cancellationToken);
+    }
+
+    public async Task<UpdateTicketResponse> UpdateTicket(UpdateTicketCommand data, CancellationToken cancellationToken = default)
+    {
+        return await _gameEngineClient.TicketResource.UpdateTicket(data, cancellationToken);
     }
 
     public async Task<ApiCollection<ImportTicketItem>> ImportTickets(ImportTicketsCommand data, CancellationToken cancellationToken = default)

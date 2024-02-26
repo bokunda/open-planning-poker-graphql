@@ -59,6 +59,7 @@ type Mutation {
   createGameSettings(gameId: UUID! votingTime: Int! isBreakAllowed: Boolean!): GameSettings!
   updateGameSettings(id: UUID! gameId: UUID! votingTime: Int! isBreakAllowed: Boolean!): GameSettings!
   createTicket(gameId: UUID! name: String! description: String!): CreateTicketResponse!
+  updateTicket(ticketId: UUID! name: String! description: String!): UpdateTicketResponse!
   deleteTicket(ticketId: UUID!): Boolean!
   importTickets(gameId: UUID! data: ApiCollectionOfImportTicketItemInput!): ApiCollectionOfImportTicketItem!
 }
@@ -80,6 +81,13 @@ type Query {
 
 type Ticket {
   game: Game!
+  id: UUID!
+  gameId: UUID!
+  name: String!
+  description: String!
+}
+
+type UpdateTicketResponse {
   id: UUID!
   gameId: UUID!
   name: String!

@@ -10,6 +10,8 @@ public class TicketMappingProfile : Profile
         CreateMap<GetTicketsItem, Ticket>();
         CreateMap<CreateTicketResponse, Ticket>();
         CreateMap<CreateTicketCommand, Ticket>();
+        CreateMap<UpdateTicketResponse, Ticket>();
+        CreateMap<UpdateTicketCommand, Ticket>();
         CreateMap<ImportTicketsCommand, Ticket>();
     }    
 }
