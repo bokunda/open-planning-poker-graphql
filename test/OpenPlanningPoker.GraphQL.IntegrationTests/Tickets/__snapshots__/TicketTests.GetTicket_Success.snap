@@ -1,0 +1,13 @@
+﻿{
+  "data": {
+    "ticket": {
+      "id": "c2bc2b96-06af-4e0d-9861-730db9ffbc4d",
+      "name": "name1",
+      "description": "description1",
+      "game": {
+        "id": "14303b64-1661-4cf3-800a-2150ab537d5b",
+        "name": "name1"
+      }
+    }
+  }
+}

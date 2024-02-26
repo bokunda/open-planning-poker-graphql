@@ -1,6 +1,4 @@
-﻿using OpenPlanningPoker.GameEngine.Api.Models;
-using OpenPlanningPoker.GraphQL.Service.Features.GameEngine;
-using OpenPlanningPoker.GraphQL.Service.Features.GameSettings;
+﻿using OpenPlanningPoker.GraphQL.Service.Features.GameSettings;
 
 namespace OpenPlanningPoker.GraphQL.IntegrationTests.GameSettings;
 
