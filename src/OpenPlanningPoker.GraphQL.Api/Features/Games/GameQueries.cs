@@ -1,4 +1,6 @@
-﻿namespace OpenPlanningPoker.GraphQL.Api.Features.Games;
+﻿using OpenPlanningPoker.GraphQL.Api.Features.Tickets;
+
+namespace OpenPlanningPoker.GraphQL.Api.Features.Games;
 
 [ExtendObjectType(typeof(Query))]
 public class GameQueries
@@ -18,11 +20,9 @@ public class GameQueries
         return _mapper.Map<Game>(result);
     }
 
-    public async Task<Players> GetPlayers(Guid gameId, CancellationToken cancellationToken = default)
+    public async Task<ApiCollection<Player>> GetPlayers(Guid gameId, CancellationToken cancellationToken = default)
     {
         var result = await _gameService.GetParticipants(gameId, cancellationToken);
-        var mappedResult = _mapper.Map<Players>(result);
-        mappedResult.PlayerList = _mapper.Map<ICollection<Player>>(result.Players);
-        return mappedResult;
+        return _mapper.Map<ApiCollection<Player>>(result);
     }
 }

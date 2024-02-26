@@ -1,4 +1,5 @@
 ﻿using OpenPlanningPoker.GameEngine.Api.Models.Features.GameSettings;
+using OpenPlanningPoker.GraphQL.Service.Features.GameSettings;
 
 namespace OpenPlanningPoker.GraphQL.UnitTests.Services;
 

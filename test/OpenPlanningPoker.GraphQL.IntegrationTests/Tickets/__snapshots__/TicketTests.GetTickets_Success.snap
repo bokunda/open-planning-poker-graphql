@@ -1,0 +1,27 @@
+﻿{
+  "data": {
+    "tickets": {
+      "items": [
+        {
+          "id": "ec8c3752-4b17-4c1f-bbaf-608dae753904",
+          "name": "name1",
+          "description": "description1",
+          "game": {
+            "id": "4a965cf1-f22c-4d50-b46f-862a79eff7db",
+            "name": "name1"
+          }
+        },
+        {
+          "id": "ec8c3752-1111-4c1f-bbaf-608dae753904",
+          "name": "name2",
+          "description": "description2",
+          "game": {
+            "id": "4a965cf1-f22c-4d50-b46f-862a79eff7db",
+            "name": "name1"
+          }
+        }
+      ],
+      "totalCount": 2
+    }
+  }
+}

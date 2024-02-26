@@ -1,0 +1,17 @@
+﻿{
+  "data": {
+    "importTickets": {
+      "items": [
+        {
+          "name": "name1",
+          "description": "description1"
+        },
+        {
+          "name": "name2",
+          "description": "description2"
+        }
+      ],
+      "totalCount": 2
+    }
+  }
+}

@@ -9,7 +9,7 @@
         "name": "Name",
         "description": "Description",
         "players": {
-          "playerList": [
+          "items": [
             {
               "id": "d9330d3f-a85b-415a-8136-a454129165a7",
               "name": "Name1"

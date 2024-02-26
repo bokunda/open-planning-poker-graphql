@@ -1,4 +1,6 @@
-﻿namespace OpenPlanningPoker.GraphQL.IntegrationTests.Games;
+﻿using OpenPlanningPoker.GraphQL.Service.Features.GameSettings;
+
+namespace OpenPlanningPoker.GraphQL.IntegrationTests.Games;
 
 public class GameTests
 {
@@ -34,7 +36,7 @@ public class GameTests
     public async Task GetGame_WithPlayersResolver_Success()
     {
         // Arrange
-        const string query = "query { game(gameId: \"df9ff649-d9df-41af-9792-5b1cd07a14e9\") { id name description players { playerList { id name } totalCount } settings { id votingTime game { players { playerList { name } } } } } }";
+        const string query = "query { game(gameId: \"df9ff649-d9df-41af-9792-5b1cd07a14e9\") { id name description players { items { id name } totalCount } settings { id votingTime game { players { items { name } } } } } }";
 
         var gameId = Guid.Parse("f3ac3173-837d-4d2d-84f3-037ba450f503");
         const string gameName = "name";
@@ -49,9 +51,8 @@ public class GameTests
             .Returns(new GetGameResponse(gameId, gameName, gameDescription));
 
         _gameService.GetParticipants(Arg.Any<Guid>(), Arg.Any<CancellationToken>())
-            .Returns(new ListPlayersResponse(
-                gameId, 
-                new List<ListPlayersPlayerItem>
+            .Returns(new ApiCollection<ListPlayersItem>(
+                new List<ListPlayersItem>
                 {
                     new (Guid.Parse("eca9f3f0-1777-4507-9880-845ccfe241d5"), "Name1"),
                     new (Guid.Parse("513e1a3a-5719-4179-bdfb-b80f194e8282"), "Name2")
@@ -78,14 +79,13 @@ public class GameTests
     public async Task GetGameParticipants_Success()
     {
         // Arrange
-        const string query = "query { players(gameId: \"df9ff649-d9df-41af-9792-5b1cd07a14e9\") { gameId playerList { id name } totalCount } }";
+        const string query = "query { players(gameId: \"df9ff649-d9df-41af-9792-5b1cd07a14e9\") { items { id name } totalCount } }";
 
         var gameId = Guid.Parse("f3ac3173-837d-4d2d-84f3-037ba450f503");
 
         _gameService.GetParticipants(Arg.Any<Guid>(), Arg.Any<CancellationToken>())
-            .Returns(new ListPlayersResponse(
-                gameId,
-                new List<ListPlayersPlayerItem>
+            .Returns(new ApiCollection<ListPlayersItem>(
+                new List<ListPlayersItem>
                 {
                     new (Guid.Parse("eca9f3f0-1777-4507-9880-845ccfe241d5"), "Name1"),
                     new (Guid.Parse("513e1a3a-5719-4179-bdfb-b80f194e8282"), "Name2")

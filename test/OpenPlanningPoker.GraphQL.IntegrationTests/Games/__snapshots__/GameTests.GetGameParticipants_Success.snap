@@ -1,8 +1,7 @@
 ﻿{
   "data": {
     "players": {
-      "gameId": "f3ac3173-837d-4d2d-84f3-037ba450f503",
-      "playerList": [
+      "items": [
         {
           "id": "eca9f3f0-1777-4507-9880-845ccfe241d5",
           "name": "Name1"

@@ -1,4 +1,4 @@
-﻿namespace OpenPlanningPoker.GraphQL.Service.Features;
+﻿namespace OpenPlanningPoker.GraphQL.Service.Features.GameSettings;
 
 public interface IGameSettingsService
 {

@@ -3,8 +3,30 @@
   mutation: Mutation
 }
 
+type ApiCollectionOfImportTicketItem {
+  items: [ImportTicketItem!]!
+  totalCount: Int!
+}
+
+type ApiCollectionOfPlayer {
+  items: [Player!]!
+  totalCount: Int!
+}
+
+type ApiCollectionOfTicket {
+  items: [Ticket!]!
+  totalCount: Int!
+}
+
+type CreateTicketResponse {
+  id: UUID!
+  gameId: UUID!
+  name: String!
+  description: String!
+}
+
 type Game {
-  players: Players!
+  players: ApiCollectionOfPlayer!
   settings: GameSettings!
   id: UUID!
   name: String!
@@ -24,6 +46,11 @@ type GameUserPair {
   userId: UUID!
 }
 
+type ImportTicketItem {
+  name: String!
+  description: String!
+}
+
 type Mutation {
   ping: String!
   createGame(name: String! description: String!): Game!
@@ -31,6 +58,9 @@ type Mutation {
   leaveGame(gameId: UUID!): GameUserPair!
   createGameSettings(gameId: UUID! votingTime: Int! isBreakAllowed: Boolean!): GameSettings!
   updateGameSettings(id: UUID! gameId: UUID! votingTime: Int! isBreakAllowed: Boolean!): GameSettings!
+  createTicket(gameId: UUID! name: String! description: String!): CreateTicketResponse!
+  deleteTicket(ticketId: UUID!): Boolean!
+  importTickets(gameId: UUID! data: ApiCollectionOfImportTicketItemInput!): ApiCollectionOfImportTicketItem!
 }
 
 type Player {
@@ -38,18 +68,32 @@ type Player {
   name: String!
 }
 
-type Players {
-  gameId: UUID!
-  playerList: [Player!]!
-  totalCount: Int!
-}
-
 type Query {
   ping: String!
   info: String!
   game(gameId: UUID!): Game!
-  players(gameId: UUID!): Players!
+  players(gameId: UUID!): ApiCollectionOfPlayer!
   gameSettings(gameId: UUID!): GameSettings!
+  ticket(ticketId: UUID!): Ticket!
+  tickets(gameId: UUID!): ApiCollectionOfTicket!
+}
+
+type Ticket {
+  game: Game!
+  id: UUID!
+  gameId: UUID!
+  name: String!
+  description: String!
+}
+
+input ApiCollectionOfImportTicketItemInput {
+  items: [ImportTicketItemInput!]!
+  totalCount: Int!
+}
+
+input ImportTicketItemInput {
+  name: String!
+  description: String!
 }
 
 scalar UUID @specifiedBy(url: "https:\/\/tools.ietf.org\/html\/rfc4122")
