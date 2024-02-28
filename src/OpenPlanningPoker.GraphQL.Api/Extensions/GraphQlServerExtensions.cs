@@ -16,11 +16,14 @@ public static class GraphQlServerExtensions
             .AddTypeExtension<InfoQueries>()
             .AddTypeExtension<GameQueries>()
             .AddTypeExtension<GameSettingsQueries>()
-            .AddTypeExtension<TicketQueries>();
+            .AddTypeExtension<TicketQueries>()
+            .AddTypeExtension<VoteQueries>();
 
     private static IRequestExecutorBuilder AddMutations(this IRequestExecutorBuilder builder) =>
-        builder.AddMutationType<Mutation>()
+        builder
+            .AddMutationType<Mutation>()
             .AddTypeExtension<GameMutations>()
             .AddTypeExtension<GameSettingsMutations>()
-            .AddTypeExtension<TicketMutations>();
+            .AddTypeExtension<TicketMutations>()
+            .AddTypeExtension<VoteMutations>();
 }

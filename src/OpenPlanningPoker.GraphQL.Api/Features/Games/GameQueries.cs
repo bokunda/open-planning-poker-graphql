@@ -1,6 +1,4 @@
-﻿using OpenPlanningPoker.GraphQL.Api.Features.Tickets;
-
-namespace OpenPlanningPoker.GraphQL.Api.Features.Games;
+﻿namespace OpenPlanningPoker.GraphQL.Api.Features.Games;
 
 [ExtendObjectType(typeof(Query))]
 public class GameQueries
