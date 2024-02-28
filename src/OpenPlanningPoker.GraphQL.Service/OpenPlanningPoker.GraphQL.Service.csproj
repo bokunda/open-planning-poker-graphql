@@ -10,7 +10,7 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0" />
     <PackageReference Include="OpenPlanningPoker.GameEngine.Api.Models" Version="0.0.5" />
     <PackageReference Include="OpenPlanningPoker.GameEngine.Client.Abstractions" Version="0.0.5" />
-    <PackageReference Include="OpenPlanningPoker.GameEngine.Client.Api" Version="0.0.9" />
+    <PackageReference Include="OpenPlanningPoker.GameEngine.Client.Api" Version="0.0.10" />
   </ItemGroup>
 
   <ItemGroup>
