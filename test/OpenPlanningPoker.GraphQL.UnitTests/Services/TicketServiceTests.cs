@@ -1,6 +1,4 @@
-﻿using OpenPlanningPoker.GameEngine.Api.Models.Features.Tickets;
-
-namespace OpenPlanningPoker.GraphQL.UnitTests.Services;
+﻿namespace OpenPlanningPoker.GraphQL.UnitTests.Services;
 
 public class TicketServiceTests
 {

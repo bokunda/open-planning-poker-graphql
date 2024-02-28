@@ -1,7 +1,4 @@
-﻿using OpenPlanningPoker.GraphQL.Service.Features.GameSettings;
-using OpenPlanningPoker.GraphQL.Service.Features.Tickets;
-
-namespace OpenPlanningPoker.GraphQL.Service.Extensions;
+﻿namespace OpenPlanningPoker.GraphQL.Service.Extensions;
 
 public static class DependencyInjectionExtensions
 {
@@ -10,5 +7,6 @@ public static class DependencyInjectionExtensions
             .AddGameEngineClient(appSettings.GameEngineApi)
             .AddTransient<IGameService, GameService>()
             .AddTransient<IGameSettingsService, GameSettingsService>()
+            .AddTransient<IVotingService, VotingService>()
             .AddTransient<ITicketService, TicketService>();
 }

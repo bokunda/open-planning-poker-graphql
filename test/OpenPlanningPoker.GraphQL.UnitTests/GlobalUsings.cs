@@ -11,3 +11,4 @@ global using Microsoft.AspNetCore.Http.Internal;
 global using OpenPlanningPoker.GameEngine.Api.Models;
 global using OpenPlanningPoker.GameEngine.Api.Models.Features.Tickets;
 global using OpenPlanningPoker.GraphQL.Service.Features.Tickets;
+global using OpenPlanningPoker.GraphQL.Service.Features.Votes;

@@ -13,3 +13,6 @@ global using OpenPlanningPoker.GameEngine.Client.Api;
 global using OpenPlanningPoker.GameEngine.Client.Api.Extensions;
 global using OpenPlanningPoker.GraphQL.Service.Features;
 global using OpenPlanningPoker.GraphQL.Service.Features.GameEngine;
+global using OpenPlanningPoker.GraphQL.Service.Features.GameSettings;
+global using OpenPlanningPoker.GraphQL.Service.Features.Tickets;
+global using OpenPlanningPoker.GraphQL.Service.Features.Votes;
