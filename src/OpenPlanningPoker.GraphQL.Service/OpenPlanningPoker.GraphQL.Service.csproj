@@ -13,4 +13,8 @@
     <PackageReference Include="OpenPlanningPoker.GameEngine.Client.Api" Version="0.0.9" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Votes\" />
+  </ItemGroup>
+
 </Project>

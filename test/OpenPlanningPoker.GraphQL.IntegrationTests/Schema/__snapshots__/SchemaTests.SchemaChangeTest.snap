@@ -18,6 +18,11 @@ type ApiCollectionOfTicket {
   totalCount: Int!
 }
 
+type ApiCollectionOfVote {
+  items: [Vote!]!
+  totalCount: Int!
+}
+
 type CreateTicketResponse {
   id: UUID!
   gameId: UUID!
@@ -62,6 +67,8 @@ type Mutation {
   updateTicket(ticketId: UUID! name: String! description: String!): UpdateTicketResponse!
   deleteTicket(ticketId: UUID!): Boolean!
   importTickets(gameId: UUID! data: ApiCollectionOfImportTicketItemInput!): ApiCollectionOfImportTicketItem!
+  createVote(ticketId: UUID! value: Int!): Vote!
+  updateVote(id: UUID! value: Int!): Vote!
 }
 
 type Player {
@@ -77,6 +84,7 @@ type Query {
   gameSettings(gameId: UUID!): GameSettings!
   ticket(ticketId: UUID!): Ticket!
   tickets(gameId: UUID!): ApiCollectionOfTicket!
+  ticketVotes(ticketId: UUID!): ApiCollectionOfVote!
 }
 
 type Ticket {
@@ -92,6 +100,12 @@ type UpdateTicketResponse {
   gameId: UUID!
   name: String!
   description: String!
+}
+
+type Vote {
+  id: UUID!
+  playerId: UUID!
+  value: Int!
 }
 
 input ApiCollectionOfImportTicketItemInput {

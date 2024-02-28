@@ -1,0 +1,19 @@
+﻿{
+  "data": {
+    "ticketVotes": {
+      "items": [
+        {
+          "id": "c2bc2b96-1111-4e0d-9861-730db9ffbc4d",
+          "playerId": "c2bc2b96-3333-4e0d-9861-730db9ffbc4d",
+          "value": 2
+        },
+        {
+          "id": "c2bc2b96-2222-4e0d-9861-730db9ffbc4d",
+          "playerId": "c2bc2b96-4444-4e0d-9861-730db9ffbc4d",
+          "value": 2
+        }
+      ],
+      "totalCount": 2
+    }
+  }
+}

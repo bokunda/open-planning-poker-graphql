@@ -1,5 +1,4 @@
-﻿using OpenPlanningPoker.GraphQL.Api.Features.Tickets;
-using OpenPlanningPoker.GraphQL.Service.Features.GameSettings;
+﻿using OpenPlanningPoker.GraphQL.Service.Features.GameSettings;
 
 namespace OpenPlanningPoker.GraphQL.Api.Features.Games;
 
